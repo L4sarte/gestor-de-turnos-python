@@ -28,7 +28,7 @@ El desarrollo del proyecto sigue una estrategia incremental:
 
 [x] Refactorización: Eliminar variables globales y dependencias.
 
-[ ] Persistencia de datos: Guardado y cargado mediante archivos JSON.
+[x] Persistencia de datos: Guardado y cargado mediante archivos JSON.
 
 [ ] Manejo avanzado de fechas (Librería datetime).
 
