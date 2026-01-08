@@ -26,7 +26,7 @@ El desarrollo del proyecto sigue una estrategia incremental:
 
 [x] Robustez en la entrada de datos (IDs y Fechas).
 
-[ ] Refactorización: Eliminar variables globales y dependencias.
+[x] Refactorización: Eliminar variables globales y dependencias.
 
 [ ] Persistencia de datos: Guardado y cargado mediante archivos JSON.
 
