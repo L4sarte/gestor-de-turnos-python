@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "cliente": "Ignacio Lasarte",
+        "fecha": "20/01/2026",
+        "hora": "16:30",
+        "estado": "pendiente"
+    },
+    {
+        "id": 2,
+        "cliente": "Ignacio Lasarte",
+        "fecha": "Prueba",
+        "hora": "Prueba",
+        "estado": "pendiente"
+    },
+    {
+        "id": 3,
+        "cliente": "Prueba2",
+        "fecha": "Prueba2",
+        "hora": "Prueba2",
+        "estado": "pendiente"
+    }
+]
