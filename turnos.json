@@ -19,5 +19,12 @@
         "fecha": "Prueba2",
         "hora": "Prueba2",
         "estado": "pendiente"
+    },
+    {
+        "id": 4,
+        "cliente": "Ignacio",
+        "fecha": "20/12/2026",
+        "hora": "20:30",
+        "estado": "pendiente"
     }
 ]

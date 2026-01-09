@@ -1,7 +1,9 @@
 import funciones
     
+# "Activar" el json para leer los turnos anteriormente guardados
 funciones.cargar_turnos()
 while True:
+    # Para traer la variable opcion de la funcion
     opcion = funciones.mostrar_menu()
     if opcion == 1:
         print("--- Agregar turno ---")
