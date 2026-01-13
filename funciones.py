@@ -20,14 +20,14 @@ def cargar_turnos():
 
 def mostrar_menu():
     print("\n--- Menu Gestor de tareas by L4sarte ---")
-    print("1. Agregar turno \n2. Ver turnos \n3. Cancelar un turno \n4. Salir")
+    print("1. Agregar turno \n2. Ver turnos \n3. Cancelar un turno \n4. Cambiar estado de un turno \n5. Salir")
     # Validacion de formato input
     while True:
         try:
             opcion = int(input("Seleccione una opcion: "))
             break
         except:
-            print("Debes ingresar una opcion valida del menu (1-4)")
+            print("Debes ingresar una opcion valida del menu (1-5)")
     return opcion
 
 def solicitar_datos_turno():
@@ -54,11 +54,11 @@ def solicitar_datos_turno():
             print("El formato de la hora debe ser (HH:MM)")
     return cliente, fecha, hora
 
-def solicitar_id_eliminar():
+def solicitar_id():
     while True:
         try:
-            id_eliminar = int(input("Ingrese el ID del turno que desea eliminar: "))
-            return id_eliminar # Devuelve el dato limpio
+            ide = int(input("Ingrese el ID: "))
+            return ide # Devuelve el dato limpio
         except:
             print("Debe ingresar un ID valido (numerico entero)")
 
@@ -85,13 +85,13 @@ def ver_turnos():
             print(f"\tID: {turno['id']} \nCliente: {turno['cliente']} \nFecha: {turno['fecha']} \nHora: {turno['hora']} \nEstado: {turno['estado']}")
             print("------------------------------")
 
-def cancelar_turno(id_eliminar): # <--- Ahora recibe el ID desde afuera
+def cancelar_turno(ide): # <--- Ahora recibe el ID desde afuera
     print("\n--- Eliminar turno ---")
     
     turno_encontrado = None
     # Logica para buscar el turno
     for turno in lista_turnos:
-        if turno['id'] == id_eliminar:
+        if turno['id'] == ide:
             turno_encontrado = turno
             break
             
@@ -99,6 +99,21 @@ def cancelar_turno(id_eliminar): # <--- Ahora recibe el ID desde afuera
     if turno_encontrado:
         lista_turnos.remove(turno_encontrado)
         print("Turno cancelado correctamente")
+        guardar_turnos()
+    else:
+        print("El ID ingresado no se encuentra")
+
+def marcar_turno_realizado(ide):
+    print("\n--- Actualizar estado de un turno ---")
+    turno_encontrado = None
+    for turno in lista_turnos:
+        if turno['id'] == ide:
+            turno_encontrado = turno
+            break
+
+    if turno_encontrado:
+        turno['estado'] = "Completado"
+        print("Estado del turno cambiado correctamente")
         guardar_turnos()
     else:
         print("El ID ingresado no se encuentra")

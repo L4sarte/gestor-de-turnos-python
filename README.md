@@ -1,61 +1,54 @@
-Gestor de Turnos (Turnero)
-Un sistema de gestión de turnos desarrollado en Python. Este proyecto busca replicar la lógica de un sistema de reservas escalable, comenzando desde un MVP (Producto Mínimo Viable) en consola y evolucionando hacia una aplicación robusta con persistencia de datos.
+# Gestor de Turnos (Turnero)
 
-📋 Características Actuales
-Alta de turnos: Registro de cliente, fecha, hora y estado.
+Un sistema de gestión de turnos desarrollado en Python. Este proyecto busca replicar la lógica de un sistema de reservas escalable, comenzando desde un MVP en consola y evolucionando hacia una aplicación robusta con persistencia de datos y arquitectura profesional.
 
-Listado de turnos: Visualización completa de las reservas actuales.
+## 📋 Características Actuales
+* **Alta de turnos (Create):** Registro de cliente, fecha y hora con validaciones robustas (no permite fechas pasadas ni formatos inválidos).
+* **Listado de turnos (Read):** Visualización completa de las reservas. Mensajes inteligentes cuando no hay datos.
+* **Actualización de Estado (Update):** Posibilidad de marcar turnos como "Completado" reutilizando la lógica de búsqueda.
+* **Cancelación (Delete):** Eliminación de turnos mediante ID único.
+* **Persistencia de Datos:** Guardado automático en `JSON` para mantener la información entre sesiones.
+* **Arquitectura MVC:** Separación clara entre la Interfaz (inputs/menú) y la Lógica de Negocio.
 
-Cancelación: Eliminación de turnos mediante ID único.
+## 🛠️ Tecnologías
+* **Lenguaje:** Python 3.x
+* **Manejo de Datos:** JSON (Persistencia), Datetime (Validación temporal).
+* **Arquitectura:** Modular (Separación de responsabilidades: Interfaz vs Lógica).
+* **Control de Versiones:** Git & GitHub.
 
-Interfaz de Consola: Menú interactivo y navegación sencilla.
+## 🚀 Hoja de Ruta (Roadmap)
+El desarrollo del proyecto sigue una estrategia incremental. Actualmente se ha alcanzado el hito de la **v1.0**.
 
-Validación de Entradas: Manejo de errores para evitar cierres inesperados en el menú principal.
+- [x] MVP Básico (CRUD en memoria).
+- [x] Robustez en el menú principal (Manejo de errores).
+- [x] Persistencia de datos (JSON).
+- [x] Refactorización: Arquitectura MVC (Separación Mozo/Cocinero).
+- [x] Manejo avanzado de fechas (Librería `datetime`).
+- [x] Funcionalidad completa CRUD (Create, Read, Update, Delete).
+- [ ] Filtros de búsqueda (por fecha o cliente).
+- [ ] Interfaz Gráfica (Futuro).
 
-🛠️ Tecnologías
-Python 3.x
+## 📝 Historial de Cambios (Changelog)
 
-Lógica estructurada (en proceso de migración a modular/POO)
+### v1.0 (Official Release - CRUD Completo)
+* **Funcionalidad Completa:** Se agregó la opción de "Cambiar estado del turno" (de Pendiente a Completado), cerrando el ciclo CRUD.
+* **Manejo de Fechas:** Implementación de la librería `datetime`. Ahora el sistema valida que las fechas sean reales y futuras.
+* **Arquitectura MVC Finalizada:** Se completó la separación de responsabilidades. Las funciones lógicas (`agregar`, `cancelar`, `modificar`) ya no contienen `inputs` ni interacciones directas con el usuario, recibiendo todo por parámetros.
+* **Mejoras de UX:** Mensajes más claros, feedback cuando las listas están vacías y validación de formatos de hora (HH:MM).
 
-🚀 Hoja de Ruta (Roadmap)
-El desarrollo del proyecto sigue una estrategia incremental:
+### v0.3 (Persistencia y Estructura)
+* **Persistencia de Datos:** Implementación de sistema de guardado y carga automática mediante archivos JSON (`turnos.json`).
+* **Modularización:** Refactorización del código en dos módulos: `main.py` y `funciones.py`.
+* **Lógica Autónoma:** Generación automática de IDs basada en los registros existentes.
 
-[x] MVP Básico (CRUD en memoria).
+### v0.2
+* Implementación de `try-except` generalizados para evitar cierres por errores de tipo de dato (str vs int).
 
-[x] Robustez en el menú principal (Manejo de errores).
+### v0.1
+* Lanzamiento inicial del MVP.
+* Funciones básicas: Agregar, Ver y Cancelar.
+* Almacenamiento temporal en RAM.
 
-[x] Robustez en la entrada de datos (IDs y Fechas).
-
-[x] Refactorización: Eliminar variables globales y dependencias.
-
-[x] Persistencia de datos: Guardado y cargado mediante archivos JSON.
-
-[ ] Manejo avanzado de fechas (Librería datetime).
-
-[ ] Interfaz Gráfica (Futuro).
-
-📝 Historial de Cambios (Changelog)
-
-v0.3 (Persistencia y Estructura)
-Persistencia de Datos: Implementación de sistema de guardado y carga automática mediante archivos JSON (turnos.json). Los datos ya no se pierden al cerrar el programa.
-
-Modularización: Refactorización del código en dos módulos: main.py (controlador principal) y funciones.py (lógica de negocio), mejorando la escalabilidad.
-
-Lógica Autónoma: Eliminación de variables globales para el contador de IDs; ahora el sistema calcula el siguiente ID automáticamente basado en los registros existentes.
-
-Robustez: Implementación de manejo de errores (try-except) en todas las entradas numéricas críticas para evitar cierres inesperados.
-
-v0.2
-Se implementó un sistema de try-except en el menú principal y en la seccion "Cancelar turno" para evitar que el programa se cierre al ingresar texto en lugar de números.
-
-Mejoras en la legibilidad del código.
-
-v0.1
-Lanzamiento inicial del MVP.
-
-Funciones básicas: Agregar, Ver y Cancelar turnos.
-
-Almacenamiento temporal en listas (RAM).
-
-👤 Autor
-L4sarte - Desarrollador Junior / Trainee
+---
+👤 **Autor**
+**L4sarte** - Desarrollador de Software
