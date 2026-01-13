@@ -54,6 +54,14 @@ def solicitar_datos_turno():
             print("El formato de la hora debe ser (HH:MM)")
     return cliente, fecha, hora
 
+def solicitar_id_eliminar():
+    while True:
+        try:
+            id_eliminar = int(input("Ingrese el ID del turno que desea eliminar: "))
+            return id_eliminar # Devuelve el dato limpio
+        except:
+            print("Debe ingresar un ID valido (numerico entero)")
+
 def agregar_turno(cliente, fecha, hora):
     # generacion de ID
     if len(lista_turnos) == 0:
@@ -74,21 +82,16 @@ def ver_turnos():
         print(f"\tID: {turno['id']} \nCliente: {turno['cliente']} \nFecha: {turno['fecha']} \nHora: {turno['hora']} \nEstado: {turno['estado']}")
         print("------------------------------")
 
-def cancelar_turno():
+def cancelar_turno(id_eliminar): # <--- Ahora recibe el ID desde afuera
     print("\n--- Eliminar turno ---")
-    # Validacion de formato
-    while True:
-        try:
-            id_eliminar = int(input("Ingrese el ID del turno que desea eliminar: "))
-            break
-        except:
-            print("Debe ingresar un ID valido (numerico entero)")
+    
     turno_encontrado = None
     # Logica para buscar el turno
     for turno in lista_turnos:
         if turno['id'] == id_eliminar:
             turno_encontrado = turno
             break
+            
     # Eliminacion de turno o retorno de no encontrado
     if turno_encontrado:
         lista_turnos.remove(turno_encontrado)
