@@ -78,9 +78,12 @@ def agregar_turno(cliente, fecha, hora):
 def ver_turnos():
     print("\n--- Turnos actuales ---")
     # Recorre turno por turno y va mostrandolo
-    for turno in lista_turnos:
-        print(f"\tID: {turno['id']} \nCliente: {turno['cliente']} \nFecha: {turno['fecha']} \nHora: {turno['hora']} \nEstado: {turno['estado']}")
-        print("------------------------------")
+    if len(lista_turnos) == 0:
+        print("Actualmente no hay ningun turno")
+    else: 
+        for turno in lista_turnos:
+            print(f"\tID: {turno['id']} \nCliente: {turno['cliente']} \nFecha: {turno['fecha']} \nHora: {turno['hora']} \nEstado: {turno['estado']}")
+            print("------------------------------")
 
 def cancelar_turno(id_eliminar): # <--- Ahora recibe el ID desde afuera
     print("\n--- Eliminar turno ---")
