@@ -6,8 +6,9 @@ while True:
     # Para traer la variable opcion de la funcion
     opcion = funciones.mostrar_menu()
     if opcion == 1:
+        nombre, fecha, hora = funciones.solicitar_datos_turno()
+        funciones.agregar_turno(nombre, fecha, hora)
         print("--- Agregar turno ---")
-        funciones.agregar_turno()
     elif opcion == 2:
         funciones.ver_turnos()
     elif opcion == 3:

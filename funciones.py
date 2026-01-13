@@ -30,13 +30,8 @@ def mostrar_menu():
             print("Debes ingresar una opcion valida del menu (1-4)")
     return opcion
 
-def agregar_turno():
-    # generacion de ID
-    if len(lista_turnos) == 0:
-        identificador = 1
-    else:
-        ultimo_id = lista_turnos[-1]
-        identificador =  ultimo_id['id'] + 1
+def solicitar_datos_turno():
+    
     cliente = input("Ingrese el nombre de quien reserva el turno: ")
     # Validacion de formato
     while True: 
@@ -57,6 +52,15 @@ def agregar_turno():
             break
         except:
             print("El formato de la hora debe ser (HH:MM)")
+    return cliente, fecha, hora
+
+def agregar_turno(cliente, fecha, hora):
+    # generacion de ID
+    if len(lista_turnos) == 0:
+        identificador = 1
+    else:
+        ultimo_id = lista_turnos[-1]
+        identificador =  ultimo_id['id'] + 1
     estado = "Pendiente"
     nuevo_turno = {'id': identificador, 'cliente': cliente, 'fecha': fecha, 'hora': hora, 'estado': estado}
     lista_turnos.append(nuevo_turno)
